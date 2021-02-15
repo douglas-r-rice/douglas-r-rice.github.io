@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Grogan: The QAnon Casualties Project"
+date: 2021-02-14 12:24:54 -0500
+categories: grogan, firstpost
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+My name is Helene, and I am a second-year graduate student in the sociology Ph.D. program. I have a few different research interests, but many of them center on how people make meaning in social contexts. Relevant to this project, I also have an interest in conspiracy theories and disinformation, and I am attracted to computational methods in examining these topics.
+
+## Data Source
+
+I have been looking at the discussion taking place on the subreddit [r/QAnonCasualties](https://www.reddit.com/r/QAnonCasualties/new/), which is a forum for people whose loved ones have been caught up in the QAnon conspiracy theory. The discussions center on the feeling that people have "lost" their loved ones to QAnon, with the focus of discussion ranging from a desire for support and community, to strategies for regaining contact and/or refuting conspiracy beliefs, to understanding how and why people become drawn to QAnon and conspiracism more broadly. At the time of this writing, the subreddit has approximately 127 thousand members, a number which has been growing rapidly since I first started collecting data in mid-December. This is a text-heavy subreddit with a lot of activity, which I am hoping will be a rich source of information regarding how people make sense of conspiracy movements over the course of their discussions with each other.
+
+## Research Questions
+
+As I mentioned above, one of my overarching research interests is how people create meaning in social contexts. In this particular setting, I am especially interested in how participants use the language of cults, brainwashing, and deprogramming to explain their loved ones' attraction to QAnon. For example, the currently-posted description of the forum begins with, "Have a friend or loved one taken in by QAnon? Look here for support, resources and a place to vent. Peruse old posts, settle in and relax. Learn to heal, deal and *deprogram*." (Emphasis added.) This kind of language will be my starting point for keyword-based approaches (although I can already see I'll have to be careful in defining them, as there are a number of neologisms used on this subreddit, such as calling QAnon a "Qult" in addition to a "cult").  
+
+I am also interested in whether analysis of the text will show distinct differences in the approaches people take to their discussion in the forum--for example, seeking emotional support versus sharing concrete strategies for debunking. I think perhaps topic modeling will be useful in distinguishing these. I am also curious to see whether the use of cult- and brainwashing-related language is used more in connection with one or another of these different approaches/goals that participants bring to the forum. For example, does this framing primarily help people with a goal of understanding their loved ones' involvement with QAnon, or does it offer possibilities for action in changing their minds?   
+
+Because I am also learning techniques for social network analysis, my intention is to combine text analysis with social network analysis to explore the potential network effects involved in this discussion and meaning-making. For example, I am curious about whether there are specific subsets of users involved in different aspects of the discussion, and whether there are particular dynamics that occur in the course of a comment thread that bring in the references to cults and brainwashing that I mentioned above.
+
+## Beginnings and Progress So Far
+
+I have been using the R package ["RedditExtractoR"](https://rdrr.io/cran/RedditExtractoR/) to scrape data from this subreddit. I do so in a two-stage process using different functions available within the package. First, I use the reddit_urls() function to collect the URLs of new posts and store the results in a csv file. (I have written code to collect the most recent posts and then compare the collected URLs with the ones I have already saved, and add any new ones to my file.) This step creates a fairly lightweight collection of pointers to the content of the subreddit.
+
+Then I run another script that uses the reddit_content() function to take a list of saved URLs and retrieve the contents for each one, including the original post and its full comment thread. I have built in a time delay in updating the content so that only posts that are at least 4 days old have their contents gathered, in order to give people time to comment on them. This timeframe was chosen based on a casual scan of several popular posts, in which I noted that, in general, no new comments appeared more than three days after the post was made. It is always possible for a user to come across an older post and comment on it, however, so this saved data isn't necessarily complete.
+
+I have been saving the list of URLs in one csv file, and the contents of the posts and comments in another. One of my next steps is to create a corpus of the text I want to analyze, which will involve some decisions. At this point, I am thinking of treating each thread as a "document," with a flag added to indicate which text came from the original post and which from comments, in case that ends up being an interesting distinction. I will definitely want that distinction for the network analysis side of things, and the content I have stored includes the network structure of each thread. I will eventually have to define the boundaries of the corpus in time as well, which I might do simply as a span of time that gives me a sizable amount of text to analyze, or I might choose a timeframe in which some significant discussion occurred within the subreddit. I'll discuss more of that process in my next blog post, as I start working on creating the corpus to analyze for this project.

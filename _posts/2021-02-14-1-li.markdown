@@ -1,0 +1,37 @@
+---
+layout: post
+title: "Li: Covid Vaccine Conspiracy Theories on Reddit"
+date: 2021-02-14 12:24:54 -0500
+categories: li, firstpost
+---
+
+#An Initial Content Analysis on Covid Vaccine Conspiracy Theories On Reddit
+
+##Background
+Public health crisis usually comes along with conspiracy theories, so does the Covid-19 pandemic. Keeley (1999) defines conspiracy theory as “a proposed explanation of some historical event (or events) in terms of the significant causal agency of a relatively small group of persons acting in secret”. Conspiracy thinking is the process that generates conspiracy theories. 
+
+Various conspiracy theories have been circulating on social media platforms since the outbreak of COVID-19, and those about vaccine make up an important part of the discourse. This research is dedicated to present the formation and circulation of conspiracy theories about Covid vaccine on social media. 
+
+##Research question 
+Based on the discussion above. this research aims to answer the following research questions: 
+
+How is the conspiracy thinking about the Covid vaccine constructed? 
+
+What topic models does the conspiracy thinking employ?
+
+Who participates in the conspiracy thinking and how do they interact with each other?
+
+Do Covid vaccine conspiracy theories connect to other conspiracy theories? If so, how? 
+
+##Data
+This research will use R to conduct data analysis. Unsupervised machine learning will be done in R Studio 1.4.1103. 
+
+Given that Reddit is a news aggregation website, it serves as a hub where information from various resources gather and people share common interests. Therefore, Reddit can be an ideal platform where conspiracy thinking can be properly collected and observed.
+
+Data will be collected by API extraction in r/Conspiracy. Posts containing keywords 
+“Covid vaccine”, “coronavirus vaccine”,  “Pfizer”, “Moderna”,  “Oxford-AstraZeneca” and the replies will be collected into the data corpus. 
+
+To exclude the noise from the data corpus, this research will exclude the posts before January 2020, the spike of discussion about Covid-19 according to the Google Trends. 
+
+##Reference
+Keeley, B. L. (1999). Of Conspiracy Theories. The Journal of Philosophy, 96(3), 109–126. JSTOR. https://doi.org/10.2307/2564659

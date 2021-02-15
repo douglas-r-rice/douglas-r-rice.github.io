@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Virgüez: The Influence of Amici Curiae on the Colombian Constitutional Court"
+date: 2021-02-14 12:24:54 -0500
+categories: virguez, firstpost
+---
+
+## Research Interests
+I am interested in comparative judicial politics, legal mobilization, and policing, specially in Latin America. I have a special interest on critical approaches to the study of advocacy networks and unequal power relations among actors and organizations involved in legal mobililization. This has taken me to focus on amici participation before the high courts in the region.
+
+## Research Question and Brief Descrition of the Project
+
+How do amici curiae (friends of the court) come to work together? Most of the studies about amicus briefs, especially in the U.S. Supreme Court, have focused on their influence, the types of actors that file an amicus, and their motives to do so. However, less attention has been given to the question of how networks of amici have formed. Based on a repository with more than 6,000 constitutional cases, I plan to come up with a measure of interest group coalitions that have intervened before the Colombian Constitutional Court and use network analysis to understand their evolution and the factors that have led to their formation.
+
+### Corpus
+
+I have a universe of 6,416 constitutional cases (opinions) issued by the court from 1992 (first year of the court) to 2018. All the documents were downloaded (not by me) from the court's website (https://www.corteconstitucional.gov.co/relatoria/) and all of them have a ".rtf" extension. Not all the opinions neccesarily have amici interventions (I am not sure about the exact number of cases with at least one amicus brief) but I expect that must of them have at least one. It is possible to find a reference to the name of the actor/organization who filed the brief and a short summary of the content under the section "Intervenciones" or "Intervenciones ciudadanas" (citizen's interventions). 

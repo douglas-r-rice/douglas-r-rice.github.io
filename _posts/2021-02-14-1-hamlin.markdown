@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Hamlin: Conceptualizing Citizenship"
+date: 2021-02-14 12:24:54 -0500
+categories: hamlin, firstpost
+---
+
+Coming into this class, I knew that I wanted to use Text-as-Data analysis to understand more about how the Supreme Court talks about citizenship and non-citizenship. I want to understand the logic it uses to decide which rights non-citizens can and should have access to, and what that teaches us about how American citizenship is conceptualized more generally. I have done extensive searching and screening using the search terms “migra” “alien” and “citizen” to identify all of the cases since 1970 in which the individual involved in the case is a non-citizen. In total, I have identified 149 cases. Some of them are about immigration policy, but a lot of them are not. 
+
+After reading the Science article, however, I feel like I should get more ambitious. I have had a bit of a sneaking concern that the method I was pursuing selected on the dependent variable. In other words, since I am only looking at cases where the citizenship status of the person is relevant, I am by definition missing other cases where that status is less relevant. Also, the cut-off year of 1970 was fairly arbitrary, done to limit the number of cases to the modern period when I thought I would be having to read and analyze them all myself with just my brain to help me!
+
+So now I am wondering if I should look at the entire corpus of all Supreme Court cases ever decided. As you said in lecture, it is well over 20,000 if each opinion is considered a unit. But that is the cool thing about this method, as I understand it. 
+
+My plan at this moment is: use a text searching method (tbh I still really don’t understand how this part works at all) to identify all the cases that have ever talked about the concept of citizenship at all. Maybe I would search for any instances of the word citizen/citizenship and sovereignty. Then, I’d like to try to code each case for whether the individual involved is a citizen. I’d also like to look at what the court says about citizenship and make some word clouds! I saw those in the Benoit reading and really think they could help with this project. 
+
+I think this project could be interesting not just for citizenship scholars, but for people who are doing work on the SCOTUS more generally. For example, Rice () has argued that US Supreme Court decisions have “multiple potential nestings and hierarchies of topics” within them, such that characterizing them simply by policy topic, such as “immigration,” or legal area, such as “due process” can obscure the nuance within a set of cases that are ostensibly on the same topic (2019:2). These legal and policy topics can also create divisions between cases that are otherwise theoretically linked. I believe that looking more broadly at the concept of citizenship will be revealing, but I am *really* interested in hearing your thoughts on whether this is a) possible and b) worth doing. 

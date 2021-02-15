@@ -1,0 +1,48 @@
+---
+layout: post
+title: "Huang: Exploring the Career Choices of Young People in China"
+date: 2021-02-14 12:24:54 -0500
+categories: huang, firstpost
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# About Me
+
+Tieli Huang, born and raised in China, current first-year PhD student in Political Science with a focus on International Relations. I'm interested East Asian studies and feminist theory. In my spare time, I love reading detective stories.
+
+
+# Research Question
+
+What are the most common career choices for Chinese new grads?
+
+Why are jobs in the public sector (civil servant) so popular among young people? What contributed to its popularity?
+
+
+
+
+## Background
+
+Does young people's strong desire to work in public sectors reflect their uncertainty for the future? Should there be some pattern for the the popularity of public jobs & state of the economy?
+
+This question is important because it shows people's confidence for the future of society. When young people start craving for civil servant jobs, they might not have as much faith in a free market as before.
+
+
+
+# Corpus
+
+To find out about why young people nowadays wish they had a job in the public sector, it is important to not only look at the employment report from major universities, the ministry of education and the ministry of human resources, but also social media platforms.
+
+The most widely used networking platform in China, Douban, has all kinds of interest groups where people share with each other on one theme. And there are several of them aim specifically at the job market and the working environment. My plan is to select some of the most popular stories amomng these group members and to find out about the motives for them to take the National civil service examination.
+
+
+
+
+
+
+
+
+

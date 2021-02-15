@@ -1,0 +1,76 @@
+---
+layout: post
+title: "Dinnie: The r/WallStreetBets Community"
+date: 2021-02-14 12:24:54 -0500
+categories: dinnie, firstpost
+---
+
+```{r setup, include=F}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For my research project, I am interested in analyzing the recently popularized Reddit page, r/WallStreetBets. To do this, I am collecting comments over the course of several weeks, compiling them into a corpus, and then exploring it to find trends amongst users. At the moment, I am still unsure exactly in which direction to take the analysis, but I have several ideas. Much of the recent attention that has been to paid to r/WallStreetBets has been in the context of users essentially banding together to 'take on' Wall Street by artifically inflating the values of specific secruities that prominent hedge funds had shorted, the most notable one being shares of Gamestop. Given the seemingly insurmountable of capital that is controlled by Wall Street, for a group of people with very little capital on an individual level to achieve this, there would necessarily have to be a very large amount of social cohesion and commradery amongst users. However, r/wallstreetbets is known for being a community that exhibits quite the opposite of this. I think it would be interesting to explore this claim further by systematically studying the forum using some of the methods we will learn in this class. I think this would be especially useful and timely research as well given that there is some evidence to suggest that the forum was not actually responsible for the ordeal: https://www.cnbc.com/2021/02/05/gamestop-mania-may-not-have-been-the-retail-trader-rebellion-it-was-perceived-to-be-data-shows.html
+Which would be in line with my hypothesis: that r/wallstreetbets is far too loosely organized, toxic, and immature to have actually created such a large frenzy amongst some of the largest institutional traders in the world. 
+
+I have already begun pulling data to do this, and have about 91,000 unqiue comments as of Saturday, 2/13. To do this, I wrote this script:
+```{r }
+# library(tidyverse)
+# library(RedditExtractoR)
+# library(lubridate)
+# 
+# today <- today()
+# subreddit <- "wallstreetbets"
+# scrape_reddit <- function(subreddit){
+#   pass <- 0
+#   overlap <- 0
+#   while(overlap == 0){
+#     pass <- pass + 1
+#     # get today's data
+#     data <- get_reddit(subreddit = subreddit, page_threshold = pass, sort_by = "new") %>%
+#     mutate(Date_pulled = today()) %>%
+#     distinct(title,
+#            `comment`,
+#            author,
+#            .keep_all = T)
+# 
+#     # get yesterday's data
+#     yesterday <- read_csv(paste0("C:/Users/iadin/Desktop/DACSS/Spring 2021/POLISCI 797TA Text-as-data/WallStreetBets Data/",
+#                                  today()-1,
+#                                  ".csv"))
+# 
+#     # bind them and remove duplicates
+#     combined <- data %>%
+#       rbind(yesterday)
+# 
+#     uniquedf <- combined %>%
+#       distinct(title,
+#                `comment`,
+#                author,
+#                .keep_all = T)
+# 
+#     # repeat this process until it pulls enough pages to overlap with what we had yesterday, which means we didn't miss anything
+#     overlap <- nrow(combined) - nrow(uniquedf)
+# 
+#     print(paste0("Pass: ", pass))
+#     print(paste0("Overlap: ", overlap))
+# 
+#   }
+#   return(uniquedf)
+# }
+# 
+# today <- scrape_reddit(subreddit) %>%
+#   write_csv(paste0("C:/Users/iadin/Desktop/DACSS/Spring 2021/POLISCI 797TA Text-as-data/WallStreetBets Data/",
+#                    today,
+#                    ".csv"))
+```
+
+Where the file that is pulled in and assigned to the data frame 'yesterday' is the output from running this script the day before; the first time I acuqired data, I just let it pull a few days worth, and this script basically builds on top of that every day. The function get_reddit() does all the heavy lifting for me, but it is also quite limited in its ability because of that. For example, I can't use this script to pull data from a specific past date, which is a pretty big limitation. But it is still useful for compiling a dataset in the manner I plan to. I then set my Windows Task Scheduler to run this script every day at 12:00 a.m., pulling all the comments that had been posted the day before. 
+
+
+
+
+
+
+
+

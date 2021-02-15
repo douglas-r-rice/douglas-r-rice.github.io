@@ -1,0 +1,51 @@
+---
+layout: post
+title: "Linberg: Parler"
+date: 2021-02-14 12:24:54 -0500
+categories: linberg firstpost
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r tidyverse, include=FALSE}
+library(tidyverse)
+```
+
+This the first blog post of the semester, describing my initial thoughts about the data I'll be looking at.
+
+Following the insurrection event at the U.S. Capitol on January 6, 2021, there was a lot of discussion in the media about the social media site Parler, which was created in 2018 and which many prominent conservative politicians and pundits felt was more welcoming of conservative views. Especially as Twitter began to label many of former president Trump's tweets as misleading or disputed, and began to take a clearer tack towards banning him completely (which they did on January 8), there was a significant surge of both memberships and activity on the site, with two particular points of explosive growth in the immediate aftermath of the November 2020 election, and in the days following the January insurrection. Parler took a largely hands-off approach to policing user content, including election misinformation and discussions of possibly violent responses to Trump's electoral loss.
+
+Per [Wikipedia](https://en.wikipedia.org/wiki/Parler):
+
+> Posts on the service often contain far-right content, antisemitism, and conspiracy theories such as QAnon.
+
+As reports that Parler had been used to coordinate at least some action leading up to the storming of the Capitol, Amazon Web Services canceled its hosting services, and it went offline as Apple and Google both removed their apps.
+
+Before it went offline, a person with a Twitter handle of [@donk_enby](https://twitter.com/donk_enby?lang=en) learned that Parler's API was basically unsecured, and she managed to offload between 50 and 70TB of posts (accounts vary) and media and make it available as an archive. It was a fast-moving situation, and the sheer volume of the downloaded data precluded easy access to it. I began to track the project out of my own curiosity, and pulled some of the data myself as it began, but it went dark for a time and I lost track of it. The data that I was able to access at that point was a small collection of amateur pro-Trump videos made by a few supporters, nothing particularly noteworthy.
+
+Even if there had been a public access point for this data, its sheer size would present a huge logistical problem in trying to work with it. Storing a cache of that much data would require an extraordinary large storage array, and the cost would be prohibitive, to say nothing of the network bandwidth necessary to transfer it all. Comcast residential services caps monthly residential usage at 1.2TB at the time of this writing, and charges significant overage fees; the cost of both transferring and storing a data set that large would put any kind of residential access out of consideration. Cloud services would need to be deployed, and would face similar problems. Thousands of dollars a month would be a conservative estimate for a could-based solution capable of storing that much data.
+
+Fortunately, I came upon a short [paper](https://arxiv.org/abs/2101.03820) by Max Aliapoulios, Emmi Bevensee, Jeremy Blackburn, Emiliano De Cristofaro, Gianluca Stringhini, and Savvas Zannettou titled "*An Early Look at the Parler Online Social Network*", in which they describe a subset of 183,000,000 Parler posts and data for 13,250,000 users, a comparatively small but still significant subset of the data, and run some basic analytics on it to demonstrate that most of its users were indeed Trump supporters, and the most active topics being the 2020 election and QAnon conspiracy theories. 
+
+I contacted the paper's lead author to inquire about the accessing the data, and was given the address of their archive:
+
+https://zenodo.org/record/4442460
+
+I downloaded the archive, which consists of 166 approximately 1GB newline-delimited JSON files (.ndjson). The compressed archive is around 35GB. While I do have enough space on my laptop to uncompress the entire archive, I have not done so yet; working with even one of the 166 data files already puts a heavy load on my CPU, and before I start to do real data grinding across the set, I want to get a sense of what's there.
+
+I'm grateful that the authors rendered the file as `ndjson`, because it means one line per record, which it makes it easy to extract and manipulate the file's contents with standard Unix tools and it is not necessary to parse JSON blocks out of the data file. For my first look at the data in the set, I simply extracted the first 1,000 lines of the first file, which is about 0.1% of its length, which is itself less than 1% of the archive size, and which is *itself* less than 1% of the total potential Parler archive.
+
+The `ndjson` R library is required to work with ndjson files. 
+
+The dataset contains .... variables, across 1000 observations for this first file:
+
+I have just begun to look at the data structures, which were created by the authors of the paper. Many of the posts have no body, for reasons I will be investigating along the way. Filtering the first 1000 down to just those that do have data in the body:
+
+...yields ... rows; a quick perusal of this data shows an unsurprising level of profanity and political sentiment. 
+
+
+I don't know yet what question(s) I will be asking of this corpus. It is easy to get pulled down the rabbit hole of spectator shock, and the paper authors warned that some of the content is very unpleasant to consider. For the purposes of this class, however, the intent is *not* to actually read any of it, but to use text-as-data methods and create n-grams and subject them to various analyses. As I learn more about doing this, I will develop a better sense of what the possibilities are.
+
+Whether we will process things like emojis also remains to be seen: the following is the first row from the dataset above viewed in UTF-8 (which the `head` function in R via knitr seems not to support):
+

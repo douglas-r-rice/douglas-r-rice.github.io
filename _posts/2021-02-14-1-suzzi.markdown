@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Suzzi: Understanding Ecology through Coquerel's Sifaka"
+date: 2021-02-14 12:24:54 -0500
+categories: suzzi, firstpost
+---
+
+
+Computer-aided text analysis offers exciting new possibilities for research using a range of exemplary studies from a variety of disciplines. Research areas as diverse as biology, chemistry, sociology and criminology have seen effective use made of text mining technologies (Tonkin & Tourte 2016). However, text analysis is rarely used in ecology and conservation.
+
+In this study, I will undertake a topic analysis to identify areas that are studied in ecology and how the growth in topics has changed over the past 35 years. Ecology as a science dealing with systems characterized by biotic and abiotic attributes in space and time. Given the broad scope of this inquiry, I will review in detail a particular species - Coquerel’s Sifaka (*Propithecus coquereli*) - and use it as a case study to interrogate an entire corpus of literature. This body of literature is an interesting application for text analysis due to its sheer size and diversity which hinders effective synthesis (over 1,500 articles). Text analysis has strong potential for increasing scientists’ capacity for rapid and detailed synthesis of conservation science. 
+
+![Coquerel's Sifaka - Ankarafantsika - Madagascar. Source: Francesco Veronesi on Flikr. CC BY-SA 2.0](https://live.staticflickr.com/5594/15283056881_f5dbde5f31_b.jpg)
+
+## Research Questions:
+### Which topics are most popular?
+-  the total number of articles that have been published on a topic (ie abundance, genetics, climate change, etc) in the period for which data are available
+
+### How have research priorities changed over the past three decades?
+- the extent to which that topic has changed in popularity over that period
+
+### Is lemur research following trends in ecology?
+- Researchers expected an increase in research conducted at the at the community level accompanied by a proportional decrease in studies of single species (Carmel et al 2013). However, it seems that's not the case for *Propithecus coquereli*.
+
+### What are future research directions?
+- unifying well understood but disparate concepts (ie spatial distribution of community ecology, factors affecting the relation between small mammals, effect size of national parks on tropical rain forests, etc)
+
+
+The dataset for this study will be constructed from the ISI Web of Science publication database. 

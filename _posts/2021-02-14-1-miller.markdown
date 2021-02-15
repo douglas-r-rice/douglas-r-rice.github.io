@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Miller: #SharpieGate"
+date: 2021-02-14 12:24:54 -0500
+categories: miller firstpost
+---
+
+# Introduction
+Hi, all! I'm Larri (full name Larrisa, she/her pronouns). I'm currently pursuing my M.S. in Data Analytics and Computational Social Science (DACSS) and have just been accepted into the UMass Amherst Communication PhD program, where I intend to focus on the intersection of Media, Technology, and Society. I have a B.A. in Cognitive Science and Psychology from Lehigh University, as well as a minor in Sociology/Anthropology. I am largely interested in information flow and how the internet impacts shared public knowledge. My more specific interests include the facilitation of misinformation spread via social media and the ethics of algorithmic systems. Feel free to check out my work via [Wordpress](https://larrimiller.wordpress.com/) or [GitHub](https://github.com/LarriMill), which I plan on updating at least semi-regularly.
+
+
+# Previous Work
+Last semester I learned how to collect data through the Twitter API
+and decided to use this newfound skill for final projects in three out of my four classes. I wanted to look into election misinformation and right wing conspiracies surrounding Trump, so I checked out what hashtags on Twitter were trending and/or associated with groups such as Q-Anon. I first tried looking up "#fakeNews" but realized that would be far too broad of a term used in more contexts than just the election or Trump. I decided to look into QAnon and searched "#QAnon" as well as "#WWG1WGA," which stands for "Where We Go One We Go All," a commonly used QAnon slogan. Neither of these searches produced very many tweets so I switched tactics and looked at #SharpieGate and #StopTheSteal instead. I collected 4,968 tweets containing #StopTheSteal on November 14, 2020 and 10,174 tweets containing #SharpieGate on Nov. 17, 2020. 
+
+
+I chose to primarily work with #SharpieGate for two reasons: one, I had more data, and two, it represented a singular event as opposed to the more general Stop the Steal conversation. Sharpie Gate is based on a claim that ballots filled out with Sharpie could not be read by the vote-scanning machines in Maricopa County, Arizona. Election officials immediately debunked the claims, but it still went viral and resulted in government action and protests. (I describe Sharpie Gate with more detail in my term paper which can be accessed [here](https://larrimiller.files.wordpress.com/2021/02/sharpiegate.pdf). I also made an interactive shiny-app based on the #SharpieGate dataset, which can be accessed [here](https://larri-miller.shinyapps.io/SharpieGate_2020/)).
+
+I wrote a research proposal (linked above) in which I asked the following research questions:
+
+* **RQ1** Who are the most influential users that shared election fraud misinformation via Twitter hashtag #SharpieGate?
+  + **RQ1a** Are there any shared characteristics among these users (i.e., number of followers, account verification, etc.)?
+* **RQ2** Are these users influential in the #SharpieGate hashtag co-occurence network as it changes over time?
+* **RQ3** Are trending hashtags that push misinformation influential beyond the scope of Twitter echo-chambers?
+
+## #SharpieGate Findings
+I used network analysis to explore **RQ1** and **RQ1a**. The following visualization shows the top ten influencers in the network, in which nodes are sized based on PageRank rating. 
+
+![](sharpiegate_FINAL.png).  
+
+I manually examined accounts of the top ten influencers, and found that  half are verified by Twitter, half are
+Media-Elite, and the other half are Non-Elite. The average account is approximately nine years in age, follows approximately 8k other accounts, and is followed by approximately 139k accounts (excluding @nytimes, a notable outlier). 
+
+![](1_table.JPG).
+
+Interestingly, the top ten influencers were split between media elite and non-elite. This is potentially counter to the widely held belief that the media and political elites shape public reactions to events.
+
+## Goals for Text-as-Data
+I want to explore my preliminary findings further. What enables non-elite users to gain so much influence on Twitter? Are there meaningful ways that the tweet contents of influencers differ from non-influencers? These are broad questions that I hope to narrow with more analysis of the data and more exposure to text analysis techniques. 
+
+
+Because I only looked at the top ten influencers, I first need to expand that *n* value and look at more (perhaps *n* = 50 or *n* = 100-- I will need guidance on what *n* is appropriate). Additionally, I want to try different measures of influence, such as betweenness centrality rather than just PageRank. If multiple measures show that non-elites are influential I will be more confident that this is indeed the case.
+
+
+My dataset has a "text" variable which contains the written tweet content that I am excited to explore. In terms of textual analysis, I am not decided on how exactly I will analyze the tweets "text." I've tossed around the idea of sentiment analysis or topic modeling but have not yet come to a conclusion for what will yield me the most interesting insights.
