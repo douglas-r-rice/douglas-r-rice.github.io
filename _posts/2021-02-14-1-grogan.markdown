@@ -1,13 +1,11 @@
 ---
 layout: post
 title: "Grogan: The QAnon Casualties Project"
+author: Helene Grogan
 date: 2021-02-14 12:24:54 -0500
-categories: grogan, firstpost
+categories: grogan firstpost
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Introduction
 

@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Hamlin: Conceptualizing Citizenship"
+author: Rebecca Hamlin
 date: 2021-02-14 12:24:54 -0500
-categories: hamlin, firstpost
+categories: hamlin firstpost
 ---
 
 Coming into this class, I knew that I wanted to use Text-as-Data analysis to understand more about how the Supreme Court talks about citizenship and non-citizenship. I want to understand the logic it uses to decide which rights non-citizens can and should have access to, and what that teaches us about how American citizenship is conceptualized more generally. I have done extensive searching and screening using the search terms “migra” “alien” and “citizen” to identify all of the cases since 1970 in which the individual involved in the case is a non-citizen. In total, I have identified 149 cases. Some of them are about immigration policy, but a lot of them are not. 

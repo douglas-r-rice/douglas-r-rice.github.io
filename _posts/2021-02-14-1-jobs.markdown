@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Jobs: An investigation of trends in public comments to proposed regulations"
+author: William Jobs
 date: 2021-02-14 12:24:54 -0500
 categories: jobs firstpost
 ---
@@ -23,7 +24,7 @@ My name is Will Jobs and I am a second-year master's student in statistics. Back
 ## <a id="background"></a>Background
 When a federal agency proposes a new regulation, it must go through a formal review process before it is put into effect. Typically, the process entails a Notice of Proposed Rulemaking (NPRM), a public comment period, response to public comments, and Final Rule (Carey, 2013). The documents associated with the rule and all public comments are stored in the corresponding "docket" at [Regulations.gov](https://www.regulations.gov/). The public comment period may range from 30-60 days (or even up to 180 days for more complex rules), and if deemed necessary, may cause a revision to the proposed rule. More information on the rulemaking process is available on the [Federal Register website]( https://www.federalregister.gov/uploads/2011/01/the_rulemaking_process.pdf) and at the [Congressional Research Service](https://crsreports.congress.gov/product/pdf/RL/RL32240).
 
-| ![illustration of rule process](../../../../../../images/001_illustration.png) | 
+| ![illustration of rule process](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/001_illustration.png?raw=TRUE) | 
 |:--:| 
 | *Illustration of the proposal of regulations, solicitation of comments, and finalization of rules for federal agencies (Carey, 2013).* |
 
@@ -33,7 +34,7 @@ When a federal agency proposes a new regulation, it must go through a formal rev
 The Regulations.gov website is the central hub for communication of and public comment on proposed and finalized regulations from the various federal agencies (EPA, US Forest Service, USAID, DEA, etc.). The site recently underwent a major redesign, giving it an improved UI, better search experience, and simplified commenting process (see https://beta.regulations.gov/faq?type=site). The new beta website will become the official website on February 18, 2021. 
 
 
-| ![comparison of sites](images/002_comparison.png) | 
+| ![comparison of sites](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/002_comparison.png?raw=TRUE) | 
 |:--:| 
 | *Comparison of the old Regulations.gov and the redesigned version.* |
 
@@ -42,7 +43,7 @@ The Regulations.gov website is the central hub for communication of and public c
 Information on Regulations.gov can be retrieved via the web browser or via a public API that can be used to download information from (and [recently](https://regulatorystudies.columbian.gwu.edu/new-regulationsgov-api), upload comments to) a docket. Each docket includes a summary of the docket topic, contact information for the associated agency, various documents associated with the regulation, and a link to public comments.
 
 
-| ![a docket](images/003_docket.png) | 
+| ![a docket](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/003_docket.png?raw=TRUE) | 
 |:--:| 
 | *[Docket listing](https://beta.regulations.gov/document/FWS-HQ-ES-2020-0102-0001) for a proposed rule.* |
 
@@ -51,19 +52,19 @@ Information on Regulations.gov can be retrieved via the web browser or via a pub
 There may be many public comments associated with a docket, each of which has text and/or attachments and some metadata about the commenter. The metadata are often just the commenter's name or organization, but may also include city, state, and organization type. These metadata are optional and are not verified. In addition, anonymous comments are allowed.
 
 
-| ![example listing of comment](images/004_example_listing.png) | 
+| ![example listing of comment](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/004_example_listing.png?raw=TRUE) | 
 |:--:| 
 | *An [example listing](https://beta.regulations.gov/document/FWS-HQ-ES-2020-0102-0001/comment) of comments for one docket.* |
 
 <br>
 
-| ![example comment](images/005_example_comment.png) | 
+| ![example comment](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/005_example_comment.png?raw=TRUE) | 
 |:--:| 
 | *An [example of a comment](https://beta.regulations.gov/comment/FWS-HQ-ES-2020-0102-6515) for one docket.* |
 
 <br>
 
-| ![comment submission form](images/006_comment_submission.png) | 
+| ![comment submission form](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/006_comment_submission.png?raw=TRUE) | 
 |:--:| 
 | *The [public comment submission form](https://beta.regulations.gov/commenton/COLC-2020-0010-0075). This shows the fields available for individuals. Only the first name and last name are required, but there is no verification of identity.* |
 
@@ -71,7 +72,7 @@ There may be many public comments associated with a docket, each of which has te
 
 At the top of the comment submission form, the "Commenter's Checklist" gives advice on attachment file names and reasons that a comment might not be posted. Most importantly for this research, some reasons include comments that are part of a mass submission campaign, are duplicates, contain profanity, or are not related to the regulation. In addition, the site explicitly calls out form letters, saying that form letters **"do not constitute a 'vote'"** and that **"a single, well-supported comment may carry more weight than a thousand form letters."**
 
-| ![commenter's checklist](images/007_commenter_checklist.png) | 
+| ![commenter's checklist](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/007_commenter_checklist.png?raw=TRUE) | 
 |:--:| 
 | *Excerpt from the "Commenter's Checklist" about reasons why a comment might not be posted and consideration around form letters.* |
 
@@ -79,7 +80,7 @@ At the top of the comment submission form, the "Commenter's Checklist" gives adv
 
 Despite these instructions, it is common to find many identical comments for any given docket item. For example, on one docket item ("Endangered and Threatened Species: Regulations for Interagency Cooperation", [docket FWS-HQ-ES-2020-0102](https://beta.regulations.gov/docket/FWS-HQ-ES-2020-0102)), a quick search showed almost 300 public comments in support of the plan were submitted by members of the "Boone and Crockett Club" with identical or near-identical language (i.e., with a few extra words or an extra paragraph added).
  
-| ![Many identical comments in response to one rule](images/008_boone_crockett.png) | 
+| ![Many identical comments in response to one rule](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/008_boone_crockett.png?raw=TRUE) | 
 |:--:| 
 | *There were [almost 300 comments](https://beta.regulations.gov/document/FWS-HQ-ES-2020-0102-0001/comment?filter=boone%20and%20crockett%20club) with identical or near-identical language submitted in response to one proposed rule.* |
 
@@ -94,7 +95,7 @@ Especially worrying, it is now within the realm of possibility that more recent 
 ## <a id="obs"></a>Initial observations
 Regulations.gov has comments as far back as 1952, but many (most?) of the earliest comments only include a title and submitter details. 
 
-| ![earliest comment](images/009_earliest_comment.png) | 
+| ![earliest comment](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/009_earliest_comment.png?raw=TRUE) | 
 |:--:| 
 | *The [earliest comment](https://beta.regulations.gov/comment/OSHA-S777-2006-0953-0464) on Regulations.gov.* |
 
@@ -103,7 +104,7 @@ Regulations.gov has comments as far back as 1952, but many (most?) of the earlie
 Some of these early comments include attachments that are journal articles related to the regulation.
 
 
-| ![early typewritten comment](images/010_early_typewritten.png) | 
+| ![early typewritten comment](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/010_early_typewritten.png?raw=TRUE) | 
 |:--:| 
 | *[Example](https://beta.regulations.gov/comment/OSHA-H020-2006-0928-2141) of an early comment (from 1964) with an attachment containing a journal article related to the proposed regulation.* |
 
@@ -111,7 +112,7 @@ Some of these early comments include attachments that are journal articles relat
 
 Sometime later, comments included typewritten letters attached to the docket. Unfortunately, these typewritten comments have not been transcribed (by hand or by OCR) into plain-text and would be difficult to analyze. 
 
-| ![typewritten letter](images/011_typewritten.png) | 
+| ![typewritten letter](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/011_typewritten.png?raw=TRUE) | 
 |:--:| 
 | *Example of a typewritten letter attached to a [public comment](https://beta.regulations.gov/comment/OSHA-S108A-2006-0686-0199) from 1980.* |
 
@@ -120,7 +121,7 @@ Sometime later, comments included typewritten letters attached to the docket. Un
 It is not clear exactly when public comments began being transcribed or submitted as plain-text, but some were found in the year 1999. It is clear that by this point, the general public has an opportunity to weigh in, and they clearly had strong opinions.
 
 
-| ![plain-text comment](images/012_plaintext.png) | 
+| ![plain-text comment](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/012_plaintext.png?raw=TRUE) | 
 |:--:| 
 | *[Example](https://beta.regulations.gov/comment/FMCSA-1997-2350-0851) of a plain-text comment from 1999.* |
 
@@ -129,7 +130,7 @@ It is not clear exactly when public comments began being transcribed or submitte
 Some comments were submitted as attachments with multiple submitters, e.g., a collection of letters from the Teamsters union. This suggests that even early on, the use of form letters for public comments was common. 
 
 
-| ![teamsters comment](images/014_teamsters.png) | 
+| ![teamsters comment](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/014_teamsters.png?raw=TRUE) | 
 |:--:| 
 | *An example of a typewritten letter submitted as a collection of multiple letters from many individuals listed under a single [public comment](https://beta.regulations.gov/comment/FMCSA-2000-7382-0769-0005). All copies of the letter are the same except for the signee.* |
 
@@ -140,13 +141,13 @@ Some comments were submitted as attachments with multiple submitters, e.g., a co
 <br>
 
 <figure>
-<img src="images/013_example1.png" alt="example comment" />
+<img src="https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/013_example1.png?raw=TRUE" alt="example comment" />
 <br>
-<img src="images/013_example2.png" alt="example comment" />
+<img src="https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/013_example2.png?raw=TRUE" alt="example comment" />
 <br>
-<img src="images/013_example3.png" alt="example comment" />
+<img src="https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/013_example3.png?raw=TRUE" alt="example comment" />
 <br>
-<img src="images/013_example4.png" alt="example comment" />
+<img src="https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/013_example4.png?raw=TRUE" alt="example comment" />
 </figure>
 
 <br>
@@ -181,7 +182,7 @@ Before going to download the dataset myself, it made sense to see if someone els
 However, a search on (regular) Google returned a [news article](https://fcw.com/articles/2011/10/05/watchdog-makes-regulations-gov-comments-searchable.aspx) from 2011 describing a 1.5 terabyte dataset from Sunlight Labs of "every current and historic docket." This seemed very promising, so I browsed through the [Influence Explorer](http://www.influenceexplorer.com) website. This proved to be another dead end. 
 
 
-| ![influence explorer article](images/015_article.png) | 
+| ![influence explorer article](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/015_article.png?raw=TRUE) | 
 |:--:| 
 | *[Article](https://fcw.com/articles/2011/10/05/watchdog-makes-regulations-gov-comments-searchable.aspx) documenting the creation go the Influence Explorer.* |
 
@@ -190,13 +191,13 @@ However, a search on (regular) Google returned a [news article](https://fcw.com/
 Unfortunately, the organization that developed Influence Explorer, Sunlight Labs, [shut down on November 11, 2016](https://www.propublica.org/nerds/sunlight-labs-takeover-update) (Willis, 2016). Many of their projects were moved to [GitHub](https://sunlightlabs.github.io). Hidden on an unlinked page of this site is a [Bulk Data page](https://sunlightlabs.github.io/datacommons/bulk_data.html) with links to several datasets, including a federal regulations dataset with "approximately 13,000 regulatory dockets comprised of over 3,000,000 documents" which is "approximately 14 gigabytes" in size.
 
 
-| ![bulk data page](images/016_bulk_data.png) | 
+| ![bulk data page](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/016_bulk_data.png?raw=TRUE) | 
 |:--:| 
 | *[Bulk Data](https://sunlightlabs.github.io/datacommons/bulk_data.html) page on Sunlight Labs' GitHub site.* |
 
 <br>
 
-| ![Bulk Data page section on federal regulations](images/017_bulk_regs.png) | 
+| ![Bulk Data page section on federal regulations](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/017_bulk_regs.png?raw=TRUE) | 
 |:--:| 
 | *Section of the [Bulk Data](https://sunlightlabs.github.io/datacommons/bulk_data.html#available-datasets/federal-regulations) page describing their Federal Regulations dataset.* |
 
@@ -205,13 +206,13 @@ Unfortunately, the organization that developed Influence Explorer, Sunlight Labs
 Unfortunately, all links to this dataset are broken, and while a search of the [Internet Archive]( https://web.archive.org/web/20121002000716/http://torrents.sunlightfoundation.com/browse/regulations-2011-09-27/) did produce a listing of dockets by agency, none of those links were archived. In addition, the [GitHub page](https://github.com/sunlightlabs/regulations-scraper) with code used to scrape the dockets was found, but there was no evidence of where the data might be stored.
 
 
-| ![web archive listing](images/018_web_archive.png) | 
+| ![web archive listing](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/018_web_archive.png?raw=TRUE) | 
 |:--:| 
 | *[Web archive listing](https://web.archive.org/web/20121002000716/http://torrents.sunlightfoundation.com/browse/regulations-2011-09-27) of the agencies' dockets in Sunlight Labs' extract. This capture was from October 2, 2012.* |
 
 <br>
 
-| ![broken links](images/019_broken_link.png) | 
+| ![broken links](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/images/019_broken_link.png?raw=TRUE) | 
 |:--:| 
 | *All links to the federal register data from Sunlight Labs' Bulk Data page, as well as links from the web archive, were broken.* | 
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Miller: #SharpieGate"
+author: Larrisa Miller
 date: 2021-02-14 12:24:54 -0500
 categories: miller firstpost
 ---
@@ -26,12 +27,12 @@ I wrote a research proposal (linked above) in which I asked the following resear
 ## #SharpieGate Findings
 I used network analysis to explore **RQ1** and **RQ1a**. The following visualization shows the top ten influencers in the network, in which nodes are sized based on PageRank rating. 
 
-![](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/1_table.pdf).  
+![](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/table-1.png?raw=TRUE)  
 
 I manually examined accounts of the top ten influencers, and found that  half are verified by Twitter, half are
 Media-Elite, and the other half are Non-Elite. The average account is approximately nine years in age, follows approximately 8k other accounts, and is followed by approximately 139k accounts (excluding @nytimes, a notable outlier). 
 
-![](1_table.JPG).
+![](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/network.png?raw=TRUE)
 
 Interestingly, the top ten influencers were split between media elite and non-elite. This is potentially counter to the widely held belief that the media and political elites shape public reactions to events.
 

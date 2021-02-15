@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Yilmaz: Changes in Language Use on r/Wallstreetbets"
+author: Gamze Yilmaz
 date: 2021-02-14 12:24:54 -0500
-categories: yilmaz, firstpost
+categories: yilmaz firstpost
 ---
 
 # Theoretical Framework 
@@ -15,15 +16,15 @@ Reddit is one of the most popular social networking websites in the United State
 
 # Research Questions
 
-	RQ1: How does the language use on Wallstreetbets change after the peak of GameStop short squeeze? 
-	RQ2: How does the language use on Wallstreetbets reflect changing emotional reactions after the peak of GameStop short squeeze?
-	RQ3: What is the relationship between contextual norms on Wallstreetbets and language use? 
+*Research Question 1*: How does the language use on Wallstreetbets change after the peak of GameStop short squeeze? 
+*Research Question 2*: How does the language use on Wallstreetbets reflect changing emotional reactions after the peak of GameStop short squeeze?
+*Research Question 3*: What is the relationship between contextual norms on Wallstreetbets and language use? 
 	
 # Dataset
 
 We acquired a publicly available dataset for this project from Kaggle.com. The dataset includes all primary comments posted on r/wallstreetbets from January 28 to February 11, 2021. The corpus created using the dataset consists of 32679 documents and 7 document-level variables.
 
-Methodological Considerations
+# Methodological Considerations
 
 One possible way to look at the language use and changing topics over the two-week period is to use Latent Dirichlet Allocation (LDA). LDA can be used to identify patterns, themes, and structures of the Wallstreetbets posts and examine how these themes are connected. Similarly, sentiment analysis of the topics can shed light on the changing emotions in the community as the markets reacted to the short squeeze. 
 

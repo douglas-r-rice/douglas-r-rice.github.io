@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Reynolds: Exploring the World of Political Podcasts"
+author: Nate Reynolds
 date: 2021-02-14 12:24:54 -0500
-categories: reynolds, firstpost
+categories: reynolds firstpost
 ---
 
 ## What's Your Research Question?

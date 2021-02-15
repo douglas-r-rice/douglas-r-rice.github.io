@@ -1,14 +1,10 @@
 ---
 layout: post
 title: "Dinnie: The r/WallStreetBets Community"
+author: Ian Dinnie
 date: 2021-02-14 12:24:54 -0500
-categories: dinnie, firstpost
+categories: dinnie firstpost
 ---
-
-```{r setup, include=F}
-library(knitr)
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 For my research project, I am interested in analyzing the recently popularized Reddit page, r/WallStreetBets. To do this, I am collecting comments over the course of several weeks, compiling them into a corpus, and then exploring it to find trends amongst users. At the moment, I am still unsure exactly in which direction to take the analysis, but I have several ideas. Much of the recent attention that has been to paid to r/WallStreetBets has been in the context of users essentially banding together to 'take on' Wall Street by artifically inflating the values of specific secruities that prominent hedge funds had shorted, the most notable one being shares of Gamestop. Given the seemingly insurmountable of capital that is controlled by Wall Street, for a group of people with very little capital on an individual level to achieve this, there would necessarily have to be a very large amount of social cohesion and commradery amongst users. However, r/wallstreetbets is known for being a community that exhibits quite the opposite of this. I think it would be interesting to explore this claim further by systematically studying the forum using some of the methods we will learn in this class. I think this would be especially useful and timely research as well given that there is some evidence to suggest that the forum was not actually responsible for the ordeal: https://www.cnbc.com/2021/02/05/gamestop-mania-may-not-have-been-the-retail-trader-rebellion-it-was-perceived-to-be-data-shows.html
 Which would be in line with my hypothesis: that r/wallstreetbets is far too loosely organized, toxic, and immature to have actually created such a large frenzy amongst some of the largest institutional traders in the world. 

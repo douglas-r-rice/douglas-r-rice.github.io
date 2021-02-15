@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Virgüez: The Influence of Amici Curiae on the Colombian Constitutional Court"
+author: Santiago Virgüez
 date: 2021-02-14 12:24:54 -0500
-categories: virguez, firstpost
+categories: virguez firstpost
 ---
 
 ## Research Interests

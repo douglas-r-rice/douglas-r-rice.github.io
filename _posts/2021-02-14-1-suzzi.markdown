@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Suzzi: Understanding Ecology through Coquerel's Sifaka"
+author: Amanda Suzzi
 date: 2021-02-14 12:24:54 -0500
-categories: suzzi, firstpost
+categories: suzzi firstpost
 ---
 
 

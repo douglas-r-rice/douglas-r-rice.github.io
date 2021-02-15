@@ -1,16 +1,11 @@
 ---
 layout: post
 title: "Linberg: Parler"
+author: Steve Linberg
 date: 2021-02-14 12:24:54 -0500
 categories: linberg firstpost
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-```{r tidyverse, include=FALSE}
-library(tidyverse)
-```
 
 This the first blog post of the semester, describing my initial thoughts about the data I'll be looking at.
 

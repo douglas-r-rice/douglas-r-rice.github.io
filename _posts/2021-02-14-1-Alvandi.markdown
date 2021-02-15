@@ -1,13 +1,10 @@
 ---
 layout: post
 title: "Alvandi: Toxic Comments Classification"
+author: Amirhossein Alvandi
 date: 2021-02-14 12:24:54 -0500
-categories: alvandi, firstpost
+categories: alvandi firstpost
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 <style>
 body {

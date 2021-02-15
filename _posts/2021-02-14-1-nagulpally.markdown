@@ -1,13 +1,10 @@
 ---
 layout: post
 title: "Nagulpally: Representations of High-Dimensional Datasets"
+author: Anjali Nagulpally
 date: 2021-02-14 12:24:54 -0500
-categories: nagulpally, firstpost
+categories: nagulpally firstpost
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Introduction
 

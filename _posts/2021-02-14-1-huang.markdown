@@ -1,13 +1,11 @@
 ---
 layout: post
 title: "Huang: Exploring the Career Choices of Young People in China"
+author: Tieli Huang
 date: 2021-02-14 12:24:54 -0500
-categories: huang, firstpost
+categories: huang firstpost
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 
 # About Me

@@ -1,13 +1,11 @@
 ---
 layout: post
 title: "Abassah Manu: Measuring Emotions Through Text"
+author: Roselyn Abassah Manu
 date: 2021-02-14 12:24:54 -0500
-categories: abassahmanu, firstpost
+categories: abassahmanu firstpost
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 There is more involved in public behavior than cognition - emotions drive us. What an individual feels or experiences drives their behavior. As such, sharing, helping, or pursuing a course of action is preceded by certain activated emotions. Emotions are being widely studied in behavioral sciences and are a relevant component of human nature. The news media remains a valued source of information in the United States about politics and conflict for several people. Zaria Gorvettthe, in a BBC news article, posits that news changes our behavior and the way we think. According to Strapparava and Mihalcea (2008), news headlines, for example, are typically made up of words written by authors who have the intention "to provoke emotions, and consequently to attract the readers' attention." This gives the media power to influence the opinion and perceptions of readers, viewers, and listeners through the emotions they provoke. Therefore, I hypothesize that news articles with a high empathetic narrative will lead to some form of intervention by the international community.
 
