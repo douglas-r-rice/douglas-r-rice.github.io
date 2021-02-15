@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Wall: Analyzing the Influence of Donald Trump's Speech"
+author: Greg Wall
+date: 2021-02-14 12:24:54 -0500
+categories: wall firstpost
+---
+
+My name is Greg Wall, and I’m currently a third year PhD student in the Political Science department. Within political science, my subfield of research is American Politics. Moving from the broad umbrella of American Politics, I am particularly interested in campaigns and elections, political parties, public opinion, and race and identity politics. 
+
+Learning to employ 'text-as-data' will be extremely beneficial for my research interests. For instance, textual analysis of campaign stump speeches, tweets, and debate transcripts would be ideal in ascertaining policy positions or language and term structure of political candidates. Or alternatively, using APIs to scrape forum/blog contents to better understand grievances, positions, and activism of political movements/organizations would compliment my interest in race and identity politics. 
+
+Progressing from the more abstract questions, I hope to address research questions directly related to my interest in campaigns and political parties. The overarching question being: was Trump's 2016 primary campaign an embodiment of a presidential candidate appealing to factional/peripheral actors of the Republican Party? More simply, did Trump adopt the policy positions and rhetoric of factional interest groups and activists within the Republican Party extended network to remain competitive in a crowded 2016 primary field, as discussed by Polsby (1983) and Layman et al. (2010)? 
+
+For the above research questions, the anticipated preliminary corpora will consist of Trump campaign stump speeches from the 2016 primary, tweets from then-candidate Trump from June 2015 until August 2016, debate transcripts from the 2016 Republican primary, and blogs, forums, published reports from identified peripheral/factional policy demanders of the Republican Party extended network. 
+
