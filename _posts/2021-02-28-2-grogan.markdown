@@ -1,0 +1,153 @@
+---
+layout: post
+title: "Creating the QAnon Casualties Corpus (Grogan)"
+author: Helene Grogan
+date: 2021-02-28 12:24:54 -0500
+categories: grogan
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reddit Content Data
+At the end of my first blog post, I outlined how I collected my data from Reddit using RedditExtractoR, and mentioned that I am saving the contents of posts and comments in a csv file. What that looks like is a series of entries for each comment in a thread, with the following (fairly self-explanatory) columns:
+
+```r
+colnames(saved_content)
+
+ [1] "id"               "structure"        "post_date"        "comm_date"        "num_comments"    
+ [6] "subreddit"        "upvote_prop"      "post_score"       "author"           "user"            
+[11] "comment_score"    "controversiality" "comment"          "title"            "post_text"       
+[16] "link"             "domain"           "URL"  
+```
+
+I don't anticipate needing all of this information, though, and some of the columns could easily cause confusion; the "author" column, for example, gives the username of the original post author, while the "user" column gives the username of the person who wrote the comment stored on that line. In addition, the "post_text" column provides the full text of the original post in the entry for **each** comment on that post. So one early problem I had was how to handle the text of posts versus comments, since I wanted to make sure I only included the post text once in my corpus. I initially considered pulling out just the text fields into a new dataframe, but I also wanted to maintain the network structure of the data, and I didn't want to lose that in my efforts to simplify the text analysis.
+
+## Creating a Corpus (Almost)
+
+First I looked into simply turning the full saved content into a corpus using the quanteda "corpus" method. The biggest problem with this is that the method expects a single column to be identified as the text content, and in this case I have the post text in a different column from the comment text. So I went back to the idea of creating a new dataset that a) stored only the columns of interest and b) separated out the posts into their own lines. That would allow me to strip out the information I currently find unnecessary (such as number of upvotes, comment score, etc.), while preserving that information elsewhere.
+
+So I read in the saved content from the csv file, then started to take a look at it. At the time of this writing, there were 2,945 separate threads captured in my data file, with a total of 51,857 comments. I wanted to keep the content grouped together in threads, as this is what I want to consider a "document" in my corpus. This should allow me to maintain the relationships between users commenting on each others' comments, and also maintain the context of each conversation. So I wrote a pair of functions to take in the saved content and create a new matrix with the information that I want to analyze. Along the way, I also created a unique thread_id for each thread, which I created by extracting the tail end of the URL for that thread.
+
+```r
+get_text_content <- function(content) {
+    # Takes in the full saved content and extracts columns relevant to text analysis
+    # Args: content - dataframe of Reddit content
+    # Returns a matrix of text content, with separate lines for posts and comments
+    
+    # Initialize a matrix variable to hold the text data
+    text_content <- matrix(ncol = 7)
+    colnames(text_content) <- c("thread_id", "structure", "date", "type", "user", "text", "link")
+    
+    # Figure out how many separate threads are in the data
+    new_threads <- which(content$id == 1)  # Gives the row indices in saved content which have id=1
+    num_threads <- length(new_threads)     # Counts the number of those indices
+    
+    # Then want to loop through the threads and pull out the desired data
+    for (i in 1:num_threads) {
+        # First step is to get the contents of a single thread and add a line to contain the post
+        thread <- getThread(content, i)  # Get the contents of that thread
+        post_line <- thread[1,]          # Extract the first line of the thread
+        post_line$id <- 0                # Change the id of that line to 0 to indicate it's the post
+        post_line$structure <- 0         # Change the structure entry to 0 as well
+        thread <- rbind(post_line, thread) # Add that line to the top of the thread contents
+        
+        # Then want to streamline that thread data to include the relevant fields for text analysis
+        thread_text <- matrix(nrow = nrow(thread), ncol = 7)  # Initialize a matrix to hold the thread data
+        colnames(thread_text) <- c("thread_id", "structure", "date", "type", "user", "text", "link")
+        
+        # Populate the columns that are staying the same all the way through:
+        thread_text[, "thread_id"] <- sub(".*comments/", "", thread$link)
+        thread_text[, "structure"] <- thread$structure
+        thread_text[, "link"] <- thread$link
+        
+        # Populate the type column with "post" or "comment"
+        thread_text[, "type"] <- ifelse(thread$structure == 0, "post", "comment")
+        
+        # Populate the date with post_date for a post, and comm_date for a comment
+        thread_text[, "date"] <- ifelse(thread$structure == 0, thread$post_date, thread$comm_date)
+        
+        # Populate the user with author for a post, and user for a comment
+        thread_text[, "user"] <- ifelse(thread$structure == 0, thread$author, thread$user)
+        
+        # Populate the text with post_text for a post, and comment for a comment
+        thread_text[, "text"] <- ifelse(thread$structure == 0, thread$post_text, thread$comment)
+        
+        # Then add this to the collection of text content for all threads
+        text_content <- rbind(thread_text, text_content)
+    }
+    
+    return(text_content)  # Return the populated matrix for text analysis
+}
+
+getThread <- function(content, thread) {
+    # Extracts an individual thread from a saved dataframe of contents, without querying Reddit again
+    # Args: content - dataframe of Reddit content
+    #       thread - thread number to extract
+    # Returns a dataframe of thread content
+    
+    # First, find the row indices in content that have id=1, marking the beginning of a thread
+    new_threads <- which(content$id == 1)
+    
+    if (thread > length(new_threads)) { 
+        # If the indicated thread is past the end of the dataset, stop and indicate that there aren't that many threads
+        stop("There are only ", length(new_threads), " threads in the dataset.")
+    } else if (thread == length(new_threads)) {
+        #  If the thread is the very last one, return the thread contents starting with the index where it begins, and going to the end of the data
+        thread_content <- content[new_threads[thread]:nrow(content),]
+        return(thread_content)
+    } else {  
+        # And if it's not the last thread, return the thread contents starting with the index where it begins, and going to the line just before the beginning of the next one
+        thread_content <- content[new_threads[thread]:(new_threads[(thread + 1)]-1),]
+        return(thread_content)
+    }
+    
+}
+
+```
+
+The resulting matrix contains the following data for analysis:
+```r
+colnames(text_content)
+[1] "thread_id" "structure" "date"      "type"      "user"      "text"      "link"  
+```
+
+And here is an example of the contents:
+```r
+head(text_content)
+     thread_id                                                   structure date       type     
+[1,] "keqwqi/a_virtual_reality_game_designers_explanation_on_q/" "0"       "17-12-20" "post"   
+[2,] "keqwqi/a_virtual_reality_game_designers_explanation_on_q/" "1"       "17-12-20" "comment"
+[3,] "keqwqi/a_virtual_reality_game_designers_explanation_on_q/" "1_1"     "17-12-20" "comment"
+[4,] "keqwqi/a_virtual_reality_game_designers_explanation_on_q/" "2"       "17-12-20" "comment"
+[5,] "keqwqi/a_virtual_reality_game_designers_explanation_on_q/" "2_1"     "17-12-20" "comment"
+[6,] "keqwqi/a_virtual_reality_game_designers_explanation_on_q/" "2_2"     "17-12-20" "comment"
+
+     user                  
+[1,] "roc_mama_chocolatier"
+[2,] "sisters_secrets"     
+[3,] "roc_mama_chocolatier"
+[4,] "SkullBat308"         
+[5,] "api"                 
+[6,] "Podzilla07"          
+     
+     text                                                                                                      
+[1,] "This analysis has been so helpful on wrapping my head around how people are subdued into Q. The process of \"finding\" clues and discovering the \"truth\" is so hard to discuss counter arguments with. The discovering becomes apart of their core beliefs and they feel physically attacked when presented with anything that shakes them.  \n\n\nhttps://medium.com/curiouserinstitute/a-game-designers-analysis-of-qanon-580972548be5"
+[2,] "Wow, this was really fascinating and in-depth.  Thank you for sharing."
+[3,] "It's helped me so much with the confused feeling of how did this even happen to my friends/ family."    
+[4,] "Its almost like an augmented reality game, but deadly serious."                                          
+[5,] "It's a weaponized ARG."                                                                                  
+[6,] "Exactly"                                                                                                                                                                                          
+    link                                                                                                    
+[1,] "https://www.reddit.com/r/QAnonCasualties/comments/keqwqi/a_virtual_reality_game_designers_explanation_on_q/"
+[2,] "https://www.reddit.com/r/QAnonCasualties/comments/keqwqi/a_virtual_reality_game_designers_explanation_on_q/"
+[3,] "https://www.reddit.com/r/QAnonCasualties/comments/keqwqi/a_virtual_reality_game_designers_explanation_on_q/"
+[4,] "https://www.reddit.com/r/QAnonCasualties/comments/keqwqi/a_virtual_reality_game_designers_explanation_on_q/"
+[5,] "https://www.reddit.com/r/QAnonCasualties/comments/keqwqi/a_virtual_reality_game_designers_explanation_on_q/"
+[6,] "https://www.reddit.com/r/QAnonCasualties/comments/keqwqi/a_virtual_reality_game_designers_explanation_on_q/"
+```
+I saved the resulting matrix in a separate csv file, so I can load it up again later. Then I again tried the quanteda "corpus" method to convert my new dataset into a corpus, but ran into trouble because I have my "documents" (threads) split across multiple lines. I had thought that giving them all the same ID would identify them as being part of the same document, but that does not seem to be what the corpus method is looking for. So getting the data into a true "corpus" format will be my first challenge for my next blog post, as I start to move into pre-processing.
+
+
+

@@ -1,0 +1,59 @@
+---
+layout: post
+title: "Dawson: Analyzing the Telephonic Supreme Court Arguments"
+author: Nick Dawson
+date: 2021-02-14 12:24:54 -0500
+categories: dawson firstpost
+---
+
+## Me
+My name is Nick Dawson. I’m a senior in the legal studies program pursuing an accelerated master’s in political science, after which I plan to attend law school. I’ve previously studied philosophy and computer science, which goes a long way toward my interest in a text-as-data approach to legal research.
+
+## My Interests
+My interests mainly concern judicial decision-making, particularly around how judges interpret language, and how people within a legal system relate to and view their constitution. These interests have been pushing me towards some empirical analysis of how SCOTUS interprets the constitution, and I’ve felt inspired by challenges of scholars who propose that the currently dominant formalist system of interpretation on the Court, originalism, ought to be defending empirically.    
+To make a very long story short, I’m not sure that’s possible. Determining which opinions are originalist (the FIRST step in this approach) is difficult even for manual coding. D.C. v. Heller, the originalist opinion that most are familiar with, is arguably pluralist in its reasoning. It's debatable which parts of the opinion are honestly originalist (if any). And analyzing how much an opinion is like any given Scalia opinion would not, in any meaningful way, measure whether any of those opinions are originalist. So, short of surveying legal scholars, there doesn’t seem to be a satisfying way to determining when an opinion is or isn’t originalist. Since I am without the ability to write an isOriginalist() function, this project will have to wait.
+
+## My Corpus
+I am much more certain of my corpus than my research question, but I believe that the corpus is unique and interesting enough to pursue. I plan to review what I’m calling **The COVID Cases,** the growing set of arguments and their related opinions that come from the Supreme Court’s telephonic oral argument session.  
+These arguments present a unique structure that I think lends itself to a text-as-data approach. Instead of the chaotic free-for-all of in-person arguments, these arguments are structured as individual conversations between advocates and the justices. Every argument has an identical form: the chief begins questioning alone, before introducing the justices in descending order of seniority for (roughly) 5 minutes. There is never any crosstalk. This structure allows for a much easier mapping of the conversations. We can capture an advocate’s argument with each individual justice, as well as the times where justices interact by picking up each other’s questioning. My hope is that this will make appreciating the impact of oral arguments on specific justices’ opinion much more realistic.
+
+## My Question
+Though I have still not answered the underlying question of “how, if at all, can you measure the effectiveness of oral arguments?” I have a few instincts towards that question, and I think the data is likely to yield interesting information that I could not think to ask before I saw it. For an example of the former, I think it’s likely (and I believe Professor Rice has mentioned) that you can measure effectiveness by looking for instances where the justice significantly borrow language from the argument.
+
+  For example, Pam Karlan made a very specific analogy in arguing Bostock that Justice Gorsuch included, with minor alteration, in his majority opinion. It may also be possible to consider how ineffective arguments are in this way—in the same case, Justice Alito’s dissent spent considerable time being dissatisfied with an answer Karlan gave during oral argument—but that feels less likely or interesting. 
+
+I need to do more research into ways to measure the impact of oral arguments.
+There is also a lot of potential for interesting if less useful information:
+
+•	whether there’s a correlation between how much time a justice spends speaking vs listening and their vote.
+
+•	which justice has the biggest vocabulary?
+
+•	Is there any predictor in oral argument, for any justice, of what their vote will be? 
+
+•	What do justices use their time for? Speaking / listening; rhetorical / substantive questions; speaking to advocate / other justices.
+
+So, if I had to render my interest in the form of a question right now: **what can we learn from the unique Supreme Court oral arguments conducted during the COVID-19 pandemic?**
+
+## Current Status
+
+Currently what I'm working on is transforming the transcripts and opinions in such a way that I can begin analyzing, for example, everything Gorsuch says, or every interaction Breyer has with appellants (or a specific appellant).
+
+Currently I'm having trouble splitting the transcripts on a regex pattern without **consuming** the result of that pattern.
+I figured out a way to do it, by using str_locate_all() to find the position that corresponds to each pattern, and then to use substr(text,pos[1],pos[2]) to split the transcript into individual speeches
+
+## Next Steps
+
+Once I figure out how to split the transcripts the way I want, I can start analyzing the words of an individual justice. Then I have to clean up the text, which is largely accomplished by some (perhaps redundant) regex:
+
+```{r eval=FALSE}
+clean <- sample %>%
+  str_replace_all("\\<[^>]*>","") %>% #remove html
+  {str_replace_all(.,"\\r\\n","")} %>% #remove linebreaks
+  {str_replace_all(.,"\\\\","")} %>%  #remove errant "\\"s
+  {str_replace_all(.,"\\sn\\s"," ")} %>% # remove " n "
+  {str_replace_all(.,"\\s+",' ')}  # flatten all whitespace into single
+print(clean)
+```
+
+Another task is to decide whether it's worth making a systematic way to extract information from these documents (parties involved, or vote alignment in the case of opinions), or if it would be easier to do manually. With 43 arguments and 20 opinions so far--unlikely to grow much by the end of the semester--manual coding of major features will always be an option.

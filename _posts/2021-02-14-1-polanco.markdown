@@ -1,0 +1,388 @@
+---
+layout: post
+title: "Polanco: Knowledge Production in Economics"
+author: Diego Polanco
+date: 2021-02-14 12:24:54 -0500
+categories: polanco firstpost
+---
+
+# Post 1: Taking out a project from my shelf (15-02-2021)
+
+## Why I'm interested on Text-as-Data? 
+
+
+My fields of specialization during my graduate studies at UMass have been on political economy and development economics. Currently, I'm working my dissertation in the economic history of labor during the industrialization period in Chile (1932-1973). So, you might wonder how my research is related to text-as-data? Why someone studying economic history might be interested on this methodology? 
+
+Actually, the answer to those questions has many answers. To begin with, I really like to spend time coding in the computer. More accurately, I like to be in the computer in general: coding, listening music and gaming. So, in the context of the current "data revolution" I have gotten really interested in data science and all the techniques that are being developed in the field. Even though sometimes I struggle to get back to coding after spending too much time on reading and writing duties, I always try to stay on top of data science develpoments either reading a paper or an article. 
+
+
+I feel I'm not quite there yet, but I would like to see myself once I go to the job market as a data scientist who is researching economic history rather than an economist who support his job in data science. That's why despite I'm already finished my mandatory coursework I'm taking classes working towards get the graduate certificate in DACSS. So, this class is part of a general interest that I have been developing for a while already. 
+
+Another reason of why I enrolled to this class is that I see in text-as-data for historical research. I see this happening in many sub-fields. As we already have been reading for our class, text-as-data methods are pretty powerful to study the fields of politics. These methods could be really useful to study Chilean politics during during the period 1970-1973 when the socialist coalition ``Unidad Popular'' lead by Salvador Allende took office and pushed for a peaceful transition towards socialism until the violent backlash of Pinochet's dictatorship. There are many archival of the 70-73 period of newspapers, press releases, political speaches, manifests, and so on and so forth. This material is of such a great extension that might be too reading-intensive that to be tackled by qualitative methods. Thus, quantitative ones might perform more efficiently and or more comprehensively to overview and research in deep this written material.
+
+History of Economic Thought (HET) is another sub-field of history and economics that might be quite interesting to explore through text-as-data methods. Papers are a big source of historical material that might be analyzed using machine learning or distributional semantic models. Also, I believe that HET is the perfect arena where text-as-data and network analysis methods can ``dialogue'' to analyze academic communities as knowledge production networks. There are many entry points to see networks in papers, For example overlapping co-authors, quotations and references. 
+
+## A project in my shelf 
+
+Given the interest that I had in text-as-data and its potential dialogue with network analysis I looked somehow to set this interest in motion and develop it during my graduate studies. After of exploring some ideas I realized that given that it was not going to be a method that I would use in any chapter of my dissertation, I should design a small project where I could spend sometime with no pressure on deadlines so I could learn a little bit about it. Then I thought that a perfect place to start through was the [Economics Department Dissertation Collection](https://scholarworks.umass.edu/economics_diss/). 
+
+The ECON department at Umass is an special academic community given its pioneer role in develpoing heterodox economics in the discipline and developing alternative perspectives about the functioning of the capitalist economic system. So, to understand its knowledge production as network always seemed to me a pretty interesting way to understand analytically the academic community that I belong to. This way I could start to learn about text-as-data starting by learning how to do web scrapping the dissertation collection. 
+
+There is a network embedded in the production of dissertations because each thesis is done by a student with a committee of at least three advisors. Advisors overlap by sitting in committees different studnets, sharing advising with other scholars. Thus, a network of advising arise from this overlapping. This network is a one-directional network given the hierarchical nature of the advising relation. 
+
+What I want to explore in this class, is the dialogue between network analysis and text-as-data methods. To do so, I will see if there is any relation in the relative positionality of advisors in the production of knowledge of their advisees. I think this might be worked through analyzing to begin with, a corpus of abstracts of the dissertations available in the collection of the ECON department. For example, some concepts might be at the core of the knowledge production network while others in the periphery. 
+
+The [Economics Department Dissertation Collection](https://scholarworks.umass.edu/economics_diss/) its an on-line archival where most of the dissertation of UMass Econ Phd alumni can be found. Once you visit the website there is a list of all the dissertation available, with an hyperlink for each one of them conducting to a website with a series of data available: graduate student, advisors, year of degree awarded, abstract, and an hyperlink to the PDF with the whole dissertation. So, when I got into learning web scrapping I built the following code in R to obtain all the data available in the collection. Here is the code that I build last year: 
+
+
+
+```{r web-scrapping code, echo=TRUE, eval= FALSE}
+
+rm(list = ls())
+#devtools::install_github("tidyverse/rvest")
+
+## libraries
+library(XML)
+library(RCurl)
+library(plyr)
+library(gdata)
+library(sqldf)
+library(httr)
+library(scrapeR)
+library(stringr)
+library(rvest)
+library(curl)
+library(htmltidy)
+library(RDSTK)
+library(utils)
+library(tidyselect)
+library(tidyverse)
+
+#Create the url 
+URL<-"https://scholarworks.umass.edu/economics_diss/"
+
+# in the handle we can specify options available to the underlying libcurl system library.
+# ?curl::curl_options() -> display all options
+h <- curl::new_handle()
+curl::handle_setopt(h, userpwd = "dpolanconeco:Alejandra2401")
+
+# curl::curl_download(
+data_html<-read_html(curl::curl_download(URL, destfile = "page.xml", handle = h))
+
+
+
+
+#BUilding scrapping function 
+
+scrap<-function(data,year) { 
+  
+aux1<-capture.output(cat('.',paste("lockss", sep = "_",year),'',sep =''))
+datayear <- data  %>% 
+     html_nodes(aux1) %>%
+     html_nodes('.article-listing') 
+  
+  aux2 <-html_nodes(datayear, 'a') 
+  link <-html_attr(aux2, "href")
+  title <-html_text(aux2)
+  name <-html_text(datayear)
+
+  title<-as.character(title)
+  name<-as.character(name)
+  link<-as.character(link)
+  
+  df<-cbind.data.frame(name,title,link)
+  df[] <- lapply(df, as.character)
+  
+  
+  
+    
+  df$year<-as.numeric(year)                     
+  return(df)  
+}
+
+
+#Identifying years in the set 
+years <- data_html  %>% html_nodes(xpath = '//h4') 
+years<-html_text(years)
+years<-matrix(unlist(years), ncol=1, byrow=FALSE)
+years<-str_split(years,"\n\tDissertations from ")
+years<-matrix(unlist(years), ncol=1, byrow=FALSE)
+years<-years[!(years==""),]
+years<-str_split(years,"\n\t\t")
+years<-matrix(unlist(years), ncol=2, byrow=TRUE)
+years<-years[,1]
+years<- as.numeric(years)
+years<-sort(years)
+
+
+
+#Running function only for the years in the set 
+s=1 
+for (t in years){
+
+if (s==1) {
+  
+df<-scrap(data_html,t)
+  
+}    
+  else{
+    aux<-scrap(data_html,t)
+    df<-rbind(df,aux)
+    
+  }
+
+s<-s+1
+}  
+  
+
+#Cleaning name variable 
+name<-str_split(df$name,fixed(df$title))
+name<-matrix(unlist(name), ncol=1, byrow=FALSE)
+name<-name[!(name==""),]
+name<-str_split(name,",")
+name<-matrix(unlist(name), ncol=1, byrow=FALSE)
+name<-name[!(name==""),]
+df$name<-name[which(name!=" Economics")]
+
+
+#Cleaning all but built data set 
+rm(list=ls()[-3])
+
+
+#Building routine for each author 
+
+
+DIR <- "C:/Users/Diego Polanco/Google Drive/Doctorado/network_analysis project"
+setwd(DIR)
+
+
+df$name[duplicated(df$name)]
+
+aux<-df$link[startsWith(df$name, "Martin", trim=TRUE,ignore.case=TRUE)][1]
+df<-df[!(df$link==aux),]
+aux<-df$link[startsWith(df$name, "Marina", trim=TRUE,ignore.case=TRUE)][1]
+df<-df[!(df$link==aux),]
+aux<-df$link[startsWith(df$name, "Deger", trim=TRUE,ignore.case=TRUE)][1]
+df<-df[!(df$link==aux),]
+aux<-df$link[startsWith(df$name, "Wei", trim=TRUE,ignore.case=TRUE)][2]
+df<-df[!(df$link==aux),]
+aux<-df$link[startsWith(df$name, "Smita", trim=TRUE,ignore.case=TRUE)][2]
+df<-df[!(df$link==aux),]
+aux<-df$link[startsWith(df$name, "Jennifer", trim=TRUE,ignore.case=TRUE)][1]
+df<-df[!(df$link==aux),]
+aux<-df$link[startsWith(df$name, "Zhun", trim=TRUE,ignore.case=TRUE)][2]
+df<-df[!(df$link==aux),]
+aux<-df$link[startsWith(df$name, "Lynda", trim=TRUE,ignore.case=TRUE)][1]
+df<-df[!(df$link==aux),]
+rm(aux)
+
+df$seq<-seq(1,nrow(df))
+
+#nrow(df)
+for (i in 1:nrow(df)){
+
+print(i)
+  
+x<-df[df$seq==i,]
+
+URL<- toString(x$link)
+h <- curl::new_handle()
+curl::handle_setopt(h, userpwd = "dpolanconeco:Alejandra2401")
+x<-read_html(curl::curl_download(URL, destfile = "author1.txt", handle = h))
+                         
+#BP Categories 
+y1<-html_text(html_nodes(x,'#bp_categories p'))
+
+a <- y1
+if (identical(a, character(0))){
+y1<-"NA"
+}
+y1<-as.character(y1)
+
+#Abstract 
+y2<-html_text(html_nodes(x,'#abstract p'))
+
+if (length(y2)==1){
+aux=y2
+}
+
+if (length(y2)>1){
+
+for (j in 1:length(y2)){
+          
+  if (j==1){  
+    #print(j)
+          aux<-y2[j]
+          }
+          else{
+    #print(j)        
+          aux<-y2[1]
+          aux<-paste(aux,y2[j])            
+          }
+  }
+} 
+
+if (length(y2)==0){
+aux="NA"  
+}
+y2<-aux 
+
+
+
+#Advisors 
+y3 <-html_text(html_nodes(x,'#advisor5 p , #advisor4 p , #advisor3 p , #advisor2 p ,#advisor1 p'))
+if (length(y3)==1){
+y3[2] <- ""  
+y3[3] <- ""    
+y3[4] <- ""  
+y3[5] <- ""    
+}
+if (length(y3)==3){
+y3[4] <- ""  
+y3[5] <- ""    
+}
+if (length(y3)==4){
+y3[5] <- ""    
+}
+
+a <- y3
+if (identical(a, character(0))){
+y3<-c("NA","NA","NA","NA","NA")
+}
+
+#PDF Address 
+y4<-html_attr(html_nodes(x,'#pdf'),'href')
+
+
+#Recomendeed citation 
+y5<-html_text(html_nodes(x,'#recommended_citation p'))
+y5<-gsub(pattern="\n", replacement="", y5)
+
+
+a <- y5
+if (identical(a, character(0))){
+y5<-html_text(html_nodes(x,'.citation+ p'))
+y5<-gsub(pattern="\n", replacement="", y5)
+}
+
+aux<-data.frame(t(c(i,y1,y2,y3,y4,y5)),stringsAsFactors = FALSE)
+names(aux) = c("seq","bp_categories","abstract","adv1","adv2","adv3","adv4","adv5","pdfhtml","rcit")
+
+if(i==1){
+df=merge(df,aux, by="seq", all =TRUE)
+}
+
+else{
+df[i,6:14]<-aux[-1]
+}
+}
+
+rm(aux,x)
+rm(list=ls(pattern ="y"))
+
+
+#Building data for network 
+
+library(reshape)
+mdata = select(df, seq,name,adv1:adv5)
+mdata<-mdata[order(mdata$name),]
+mdata<-melt(mdata, id=c("seq","name"))
+mdata<-mdata[-which(is.na(mdata$value)),]
+mdata<-mdata[-which(mdata$value==""),]
+mdata<-mdata[order(mdata$value),]
+mdata[which(startsWith(mdata$value, "Mwangi", trim=TRUE,ignore.case=TRUE)),][4] <- "Mwangi wa Githinji"
+mdata$value[mdata$value=="Leonce Ndikumana, Ph.D."] <- "Leonce Ndikumana"
+mdata$value[mdata$value=="Léonce Ndikumana"] <- "Leonce Ndikumana"
+mdata$value[mdata$value=="Robert N. Pollin"] <- "Robert Pollin"
+mdata$value[mdata$value=="David M. Kotz"] <- "David Kotz"
+mdata$value[mdata$value=="Carol E. Heim"] <- "Carol Heim"
+mdata$value[mdata$value=="Augustin Lao-Montes"] <- "Agustin Lao-Montes"
+mdata$value[mdata$value=="Adam D. Honig"] <- "Adam Honig"
+mdata$value[mdata$value=="Gerald A. Epstein"] <- "Gerald Epstein"
+mdata$value[mdata$value=="Gerald Epstein, Ph.D."] <- "Gerald Epstein"
+mdata$value[mdata$value=="James Heintz, Ph.D."] <- "James Heintz"
+mdata$value[mdata$value=="James K. Boyce"] <- "James Boyce"
+mdata$value[mdata$value=="Kevin P. Gallagher"] <- "Kevin Gallagher"
+mdata$value[mdata$value=="Michael A. Ash"] <- "Michael Ash"
+mdata$value[mdata$value=="Krista  Harper"] <- "Krista Harper"
+
+
+#Building Edges 
+edges <- tibble(from = mdata$value , to = mdata$name)
+
+
+#2 types of nodes 
+advisors <- mdata %>% distinct(value) %>% dplyr::rename(label=value)
+graduates <- mdata %>% distinct(name) %>% dplyr::rename(label = name)
+
+
+#Length?
+length(advisors$label)+length(graduates$label)
+
+
+#BUilding Nodes 
+nodes <- full_join(advisors, graduates, by = "label")
+nodes <- nodes %>% rowid_to_column("id")
+
+
+#Working with network package
+
+library(network)
+net <- network(edges, vertex.attr = nodes, matrix.type = "edgelist")
+summary(net)
+
+
+pdf("network.pdf", width =16, height = 16)
+plot(net, vertex.cex = 2.5)
+dev.off()
+
+
+detach(package:network)
+rm(net)
+
+
+
+
+#Working with network igraph
+
+library(igraph)
+
+
+edges$from %in% nodes$label
+edges[which(edges$from %in% nodes$label) ,]
+edges[which(!edges$to %in% nodes$label) ,]
+
+
+
+net <- graph_from_data_frame(d = edges, vertices = nodes$label, directed = TRUE)
+
+summary(net)
+plot(net)
+
+
+latex <- "C:/Users/Diego Polanco/Google Drive/Doctorado/network_analysis project/latex"
+setwd(latex)
+
+
+
+sort(degree(net))
+sort(strength(net))
+
+sort(closeness(net, normalized=TRUE))
+
+sort(betweenness(net))
+sort(eigen_centrality(net)$vector)
+sort(page_rank(net)$vector)
+
+
+sort(authority_score(net)$vector)
+
+reciprocity(net)
+transitivity(net)
+components(net)
+
+
+```
+
+
+I am not sure why I couldn't integrate the whole code to knit the process and making it an output of the same code of this R Markdown script. I might need go over the whole code and using some of the tools that this class will give me to re-write it more tidyly. Definetely, I'll be showing some of this work in the next post! 

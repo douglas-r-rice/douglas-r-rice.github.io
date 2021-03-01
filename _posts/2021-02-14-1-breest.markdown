@@ -1,0 +1,75 @@
+---
+layout: post
+title: "Breest: The Institutional Grammar"
+author: Kazmiera Breest
+date: 2021-02-14 12:24:54 -0500
+categories: breest firstpost
+---
+
+## Research Project: Notes
+
+### Intro 
+As a student in the Data Analytics and Computational Social Science program, my research interests are driven by my love for empirical applications and based in my interest in institutional analysis. I was also a tutor at the Writing Center on campus during my undergrad years and have explored pedagogy which dissects linguistics and the social aspect of writing. Overall, I would like to use my data analytical skills to evaluate the impact of words in scenarios that use text-as-data, such as the Institutional Grammar Research Initiative. Given that I am currently enrolled in Prof. Brenda Bushouse's public policy seminar, I would love to flesh out the theoretical assumptions of the IGRI's mission in her class, and pair it with some of the analytical work in Prof. Bushouse's class simultaneously.
+
+This week I visited the IGRI website and navigated through all of the tabs. I took notes while I got myself acclimated to their mission, which is detailed in the sections below. Afterwards, I listed a few ideas of institutions that I could possibly analyze. I believe my choice is going to be student loans, with a goal of investigating the behaviors of students that might be influenced by promotions, gimics, and headlines. I think it would be interesting to compare the headlines/tag lines/quick reads to the fine print, promisory notes and repayment plans.  
+
+### IGRI Mission and Research Program: Notes  
+https://institutionalgrammar.org  
+   
+
+Core Foci: theoretical and methodological advancement of Institutional Grammar  
+Theoretical: PoliSci 780  
+Methodological: PoliSci 797TA  
+  
+*How?*  
+Computational Text Analysis: development and application of computational text analysis and supervised machine learning approaches for evaluating institutions, based on institutional grammar.  
+  
+Evaluating Institutional Performance: utilizing institutional grammar to develop theoretically informed criteria for assessing the      quality of institutions.  
+  
+Using Institutional Grammar to study Simulated Behavior: interaction between formal and informal institutions, explore how            institutional grammar can be used with game-theoretic approaches and agent-based modeling to facilitate institutional modeling analysis in silico  
+
+*Institutional Analysis:*   
+Institutions are constraints created by humans for the purpose of shaping behavior and interaction, i.e. public policy or social norms. Institutional analysis is the analysis of how the various kinds of institutions are created or designed, and how they affect human choices and societal outcomes.  
+
+Evaluating design: assessing content to understand structure, assessing information that content conveys about who can do what, when and how.  
+Evaluating impacts: assessing the implications of institutional design on behavior in practice, assessing implications of such on the attainment of institutional goals  
+  
+*Institutional Grammar:*  
+The Institutional Grammar is a theoretically informed approach for organizing the content of governing institutions along generalizable features, in relation to which behavioral outcomes can be assessed. Institutions are comprised of individual behavioral directives and these directives typically convey common types of information: an action; an actor associated with this action; whether this action is required, allowed, or forbidden; the temporal, spatial, and procedural parameters of the action, and; rewards or sanctions for performing or failing to perform the action as prescribed.  
+  
+- proposed a linguistic syntax designates a unique syntactic element to each of these types of information. 
+  
+Evaluating behavior in practice: organize content of institutional directives in accordance with syntax, systematically collect and analyze specific ways that institutions are intended to compel behavior, aggregated and syntactically parse institutional data to provide a comprehensive depiction of the scope of institutions.  
+  
+*Empirical Applications*  
+Computational Text Analysis: Machine Coding of Policy Texts with the Institutional Grammar  
+Project Description: Applying the Grammar of Institutions in a particular research setting is resource- and time-intensive, precipitating concerns over whether it might ever enjoy widespread use. To address this, our team of scholars is developing automated approaches and open-source tools for coding institutions based on the Grammar. Preliminary work, applying insights from computational linguistics and natural language processing, was recently published in Public Administration as part of a special issue on methodological advances related to the Grammar. Currently, the team is continuing the development of the approach, while also preparing an R package to increase the accessibility of the Grammar for other scholars.  
+
+Institutional Performance: Procedural Tools for Effective Governance (PROTEGO): Patterns, Outcomes, and Policy Design.  
+Project Description: PROTEGO draws on a fundamental claim: the design and combinations of procedural regulatory instruments have causal effects on the performance of political systems, specifically on trust in government, control of corruption, sustainability and the quality of the business environment. The key mechanism in this causal relation is accountability to different types of stakeholders. PROTEGO provides a theoretical rationale to capture these accountability effects by adopting an extension of delegation theory that considers multiple stakeholders. Empirically, this research program collects, validates and analyses original data across the EU and its 28 Member States for the period 2000-2017. The new dataset maps in detail the design of the following administrative procedures: Notice and Comment, Freedom of Information, Impact Assessment of proposed legislation and regulation, Ombudsman procedures and Administrative Judicial Review.  
+
+Institutions and Behavior:Automating Policy Analysis using Agent-Based Modeling  
+Project Description: This project aims to develop an interface for the automated generation of agent-based models from policy specifications for complex domain models. The objectives of this project are threefold: (1) The implementation of complex domain-specific models to explore the usability of agent-based modeling as validation mechanism for empirical observations; (2) The refinement of the Institutional Grammar to afford computational tractability and facilitate the automated population of agent-based models with policy information; and (3) Analytical comparison of emerging formal and informal institutional configurations. Outcomes of this project include a) the refinement the encoding guidelines for the Institutional Grammar and the b) provision of a generic framework for policy analysis using agent-based modelling based on encoded policy information.  
+  
+
+*Ideas:*  
+-	Social Distancing Guidelines  
+    What guidelines produced what results?  
+    Interpretations of ambiguous guidelines  
+    Compared to NH?  
+-	MA DUA  
+    Confusing & disenfranchising guidelines  
+-	Higher Education  
+    Navigating as a first-gen student   
+    Payment  
+-	Loans  
+    Read the fine print  
+    Why do so many people purchase a bad loan (i.e. mortgage)  
+- Student loans  
+    No defaulting  
+    Sign at 18  
+    First-gen student  
+    Promos vs promissory notes  
+
+
+
