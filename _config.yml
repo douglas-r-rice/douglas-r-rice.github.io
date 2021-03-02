@@ -28,9 +28,11 @@ url: "https://douglas-r-rice.github.io/" # the base hostname & protocol for your
 github_username:  douglas-r-rice
  
 # Build settings
-theme: jekyll-theme-minimal
+theme: minima
 plugins:
   - jekyll-feed
+
+show_excerpts: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
