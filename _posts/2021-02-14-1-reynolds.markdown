@@ -6,8 +6,6 @@ date: 2021-02-14 12:24:54 -0500
 categories: reynolds firstpost
 ---
 
-## What's Your Research Question?
-
 My research project will revolve around podcasts. The tentative research question is "What political patterns and coalitions exist between podcasts who interview the same guests?" although it could more efficiently be summarized as "What podcasts feature the same guests?". The research question might naturally evolve over the course of the project, but this is the direction I am moving in.
 
 Podcasts are a large and growing segment of the American media market. Between April 2018 and January 2021, the total number of active shows on Apple Podcasts has increased incredibly from over 500,000 to over 1,750,000 (https://www.podcastinsights.com/podcast-statistics/). It is the ultimate decentralized media platform - anyone can publish a podcast at little to no cost - and those who can garner an audience in the competitive market have a uniquely persuasive power over their listeners. A dedicated fanbase will allow a podcaster to speak into their ear for hours at a time, sometimes multiple days a week. The obvious political distinctions between TV news channels like FOX News and MSNBC pale in comparison to the portfolio of specially-tailored political niches found in the podcast market. Listeners can hear whatever content they want, for free, regardless of time and space and regardless of the podcast producers' business legitimacy and intellectual credibility. As someone interested in politics - and a long-time listener of podcasts myself - this both scares and fascinates me. Despite the clear dangers, I also respect that there is a growing market for long-form discussions rather than quick commentary and sound-bites.

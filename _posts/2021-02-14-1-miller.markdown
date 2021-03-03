@@ -6,7 +6,6 @@ date: 2021-02-14 12:24:54 -0500
 categories: miller firstpost
 ---
 
-# Introduction
 Hi, all! I'm Larri (full name Larrisa, she/her pronouns). I'm currently pursuing my M.S. in Data Analytics and Computational Social Science (DACSS) and have just been accepted into the UMass Amherst Communication PhD program, where I intend to focus on the intersection of Media, Technology, and Society. I have a B.A. in Cognitive Science and Psychology from Lehigh University, as well as a minor in Sociology/Anthropology. I am largely interested in information flow and how the internet impacts shared public knowledge. My more specific interests include the facilitation of misinformation spread via social media and the ethics of algorithmic systems. Feel free to check out my work via [Wordpress](https://larrimiller.wordpress.com/) or [GitHub](https://github.com/LarriMill), which I plan on updating at least semi-regularly.
 
 

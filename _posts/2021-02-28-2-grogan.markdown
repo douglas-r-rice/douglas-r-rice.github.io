@@ -6,14 +6,9 @@ date: 2021-02-28 12:24:54 -0500
 categories: grogan
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## Reddit Content Data
 At the end of my first blog post, I outlined how I collected my data from Reddit using RedditExtractoR, and mentioned that I am saving the contents of posts and comments in a csv file. What that looks like is a series of entries for each comment in a thread, with the following (fairly self-explanatory) columns:
 
-```r
+```{r}
 colnames(saved_content)
 
  [1] "id"               "structure"        "post_date"        "comm_date"        "num_comments"    
@@ -30,7 +25,7 @@ First I looked into simply turning the full saved content into a corpus using th
 
 So I read in the saved content from the csv file, then started to take a look at it. At the time of this writing, there were 2,945 separate threads captured in my data file, with a total of 51,857 comments. I wanted to keep the content grouped together in threads, as this is what I want to consider a "document" in my corpus. This should allow me to maintain the relationships between users commenting on each others' comments, and also maintain the context of each conversation. So I wrote a pair of functions to take in the saved content and create a new matrix with the information that I want to analyze. Along the way, I also created a unique thread_id for each thread, which I created by extracting the tail end of the URL for that thread.
 
-```r
+```{r}
 get_text_content <- function(content) {
     # Takes in the full saved content and extracts columns relevant to text analysis
     # Args: content - dataframe of Reddit content
@@ -108,13 +103,13 @@ getThread <- function(content, thread) {
 ```
 
 The resulting matrix contains the following data for analysis:
-```r
+```{r}
 colnames(text_content)
 [1] "thread_id" "structure" "date"      "type"      "user"      "text"      "link"  
 ```
 
 And here is an example of the contents:
-```r
+```{r}
 head(text_content)
      thread_id                                                   structure date       type     
 [1,] "keqwqi/a_virtual_reality_game_designers_explanation_on_q/" "0"       "17-12-20" "post"   

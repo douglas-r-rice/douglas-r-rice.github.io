@@ -6,9 +6,6 @@ date: 2021-02-14 12:24:54 -0500
 categories: breest firstpost
 ---
 
-## Research Project: Notes
-
-### Intro 
 As a student in the Data Analytics and Computational Social Science program, my research interests are driven by my love for empirical applications and based in my interest in institutional analysis. I was also a tutor at the Writing Center on campus during my undergrad years and have explored pedagogy which dissects linguistics and the social aspect of writing. Overall, I would like to use my data analytical skills to evaluate the impact of words in scenarios that use text-as-data, such as the Institutional Grammar Research Initiative. Given that I am currently enrolled in Prof. Brenda Bushouse's public policy seminar, I would love to flesh out the theoretical assumptions of the IGRI's mission in her class, and pair it with some of the analytical work in Prof. Bushouse's class simultaneously.
 
 This week I visited the IGRI website and navigated through all of the tabs. I took notes while I got myself acclimated to their mission, which is detailed in the sections below. Afterwards, I listed a few ideas of institutions that I could possibly analyze. I believe my choice is going to be student loans, with a goal of investigating the behaviors of students that might be influenced by promotions, gimics, and headlines. I think it would be interesting to compare the headlines/tag lines/quick reads to the fine print, promisory notes and repayment plans.  

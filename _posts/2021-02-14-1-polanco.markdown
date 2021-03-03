@@ -6,11 +6,6 @@ date: 2021-02-14 12:24:54 -0500
 categories: polanco firstpost
 ---
 
-# Post 1: Taking out a project from my shelf (15-02-2021)
-
-## Why I'm interested on Text-as-Data? 
-
-
 My fields of specialization during my graduate studies at UMass have been on political economy and development economics. Currently, I'm working my dissertation in the economic history of labor during the industrialization period in Chile (1932-1973). So, you might wonder how my research is related to text-as-data? Why someone studying economic history might be interested on this methodology? 
 
 Actually, the answer to those questions has many answers. To begin with, I really like to spend time coding in the computer. More accurately, I like to be in the computer in general: coding, listening music and gaming. So, in the context of the current "data revolution" I have gotten really interested in data science and all the techniques that are being developed in the field. Even though sometimes I struggle to get back to coding after spending too much time on reading and writing duties, I always try to stay on top of data science develpoments either reading a paper or an article. 

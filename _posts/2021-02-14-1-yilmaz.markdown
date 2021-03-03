@@ -6,8 +6,6 @@ date: 2021-02-14 12:24:54 -0500
 categories: yilmaz firstpost
 ---
 
-# Theoretical Framework 
-
 The social identity model of deindividuation effects (SIDE; Reicher, Spears, & Postmes,1995) contends that when virtual group members are anonymous, they engage in depersonalization, and start to perceive each other as representatives of social categories rather than individual identities (Reicher et al., 1995). The salience of social categorization in this context leads to high attraction and more conformity to contextual group norms (Spears & Lea, 1994). It is well known that contextual group norms can have an important impact on real-time interactions of group members. For instance, one study showed that group norms shape the length of messages, use of paralanguage, and the personal references (Postmes et al., 2001). Another study found that when a group was primed with an efficiency norm rather than a socioemotional norm, their use of task-oriented words increased (Postmes, Spears, & Cihangir, 2001; Postmes et al., 2001). These findings confirm that language is shaped by situational group norms that are linked to emergent social categories. One recent event that can be examined through the lens of the SIDE model is the GameStop short squeeze fulfilled by amateur traders on Reddit.
 
 # Case Description for the Project 

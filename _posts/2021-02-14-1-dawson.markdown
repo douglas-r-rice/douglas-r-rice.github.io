@@ -6,7 +6,6 @@ date: 2021-02-14 12:24:54 -0500
 categories: dawson firstpost
 ---
 
-## Me
 My name is Nick Dawson. I’m a senior in the legal studies program pursuing an accelerated master’s in political science, after which I plan to attend law school. I’ve previously studied philosophy and computer science, which goes a long way toward my interest in a text-as-data approach to legal research.
 
 ## My Interests

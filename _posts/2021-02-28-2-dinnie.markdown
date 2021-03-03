@@ -6,8 +6,5 @@ date: 2021-02-28 12:24:54 -0500
 categories: dinnie
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 Over the past two weeks, I have been running into a few issues regarding data collection. I set my computer to run the script I wrote in last week's blog post every night at midnight, and for a while it worked as intended. However, this past Thursday, I accidentally logged off of my computer before bed, which prevented the script from being run. Normally, this would not be an issue, I would just run it again the next day and it would eventually catch up to the previous day's data. However, it seems as though r/wallstreetbets has had an abnormal amount of traffic over the last week or so, when I tried to run my script, it failed to ever catch up to the previous day's data. I let the script run from about 7:00 p.m. on Thursday, until Sunday at about 7:00 a.m., but it never was able to catch up to the previous data. I believe the site was so active that the get_reddit() function was not fast enough to keep up with the posts. I am now at a bit of crossroads. I could either stop my data collection now, or continue to pull data with the understanding that there will be a gap between data I collected on Wednesday and when I run it again. As of writing this, I have just over 279,000 unique comments, which I suspect is a sufficiently large amount of data. This week, I am planning on staring to use the stringr package and some of the techniques we learned in this week's tutorial to start transforming the data frame I currently have into a more usable corpus. 

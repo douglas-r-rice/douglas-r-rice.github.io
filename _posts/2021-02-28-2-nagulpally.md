@@ -6,13 +6,6 @@ date: 2021-02-28 12:24:54 -0500
 categories: nagulpally
 ---
 
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## Data
-
 I'm using the **CNN/DailyMail dataset**, which consists of approximately 300,000 news stories from CNN.com and dailymail.co.uk. This corpus was first introduced by Hermann et al. in "Teaching Machines to Read and Comprehend" (2015). 
 
 ### Downloading the data
@@ -29,7 +22,7 @@ The main obstacle I ran into was the file format of the texts -- each article is
 
 First, I took a look at the files themselves by opening them up in a text editor. Each looks like a plain text file containing the text of the article followed by several, brief one-line summaries, each preceded by the string "@highlight"  (see image). Each text begins with a string like "*Location* (CNN) --". (These details will be useful to know when processing the texts.) 
 
-![](Anjali_BlogPost2_storyfile.PNG)
+![](https://github.com/douglas-r-rice/douglas-r-rice.github.io/blob/main/_posts/Anjali_BlogPost2_storyfile.PNG?raw=TRUE)
 
 #### Using the scan() function 
 Second, I did some research into how to load the .STORY files into R. Because these texts aren't in tabular form, the usual suspects like *read.table(), read.delim()*, etc. aren't optimal. I found two functions, *scan()* and *readLines()*, that are meant for unstructured text data like mine.
@@ -42,7 +35,7 @@ Recall that *scan()* reads each article into a character vector, where each line
 
 This is the code I wrote to read in all of the CNN texts. Unfortunately, loops are slow -- especially given that there are almost 100k texts to loop through, just for the CNN corpus. This script took about 15 minutes on my machine.
 
-```{r, eval=FALSE}
+```{r}
 ## Get file paths for each text in CNN corpus
 files <- list.files(path="C:\\Users\\gnagu\\Documents\\S21\\text as data\\cnn_stories\\stories", pattern="*.story", full.names=TRUE, recursive=FALSE)
 

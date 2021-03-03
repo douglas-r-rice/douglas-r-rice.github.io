@@ -6,8 +6,6 @@ date: 2021-02-14 12:24:54 -0500
 categories: nagulpally firstpost
 ---
 
-## Introduction
-
 My name is Anjali, and I'm a 2nd year PhD student in statistics.
 
 ## Research Interests

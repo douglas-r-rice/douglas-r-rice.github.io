@@ -7,8 +7,6 @@ categories: grogan firstpost
 ---
 
 
-## Introduction
-
 My name is Helene, and I am a second-year graduate student in the sociology Ph.D. program. I have a few different research interests, but many of them center on how people make meaning in social contexts. Relevant to this project, I also have an interest in conspiracy theories and disinformation, and I am attracted to computational methods in examining these topics.
 
 ## Data Source
